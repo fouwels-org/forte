@@ -3,7 +3,7 @@ COMPOSE=docker-compose
 BUILDFILE=build.yml
 DOCKER=docker
 
-# Config
+# Forte
 build: Dockerfile
 	$(COMPOSE) -f $(BUILDFILE) build
 push:
