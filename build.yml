@@ -1,0 +1,7 @@
+version: '2'
+services:
+  forte:
+    image:  registry2.lagoni.co.uk/forte:${V_FORTE}
+    build:
+      dockerfile: Dockerfile
+      context: "./"
