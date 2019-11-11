@@ -1,0 +1,22 @@
+stages:
+  - deploy
+
+variables:
+  REGISTRY: registry2.lagoni.co.uk
+  IMAGE: $CI_PROJECT_PATH
+  TAG: $CI_COMMIT_REF_NAME
+
+docker-branch:
+  # Official docker image.
+  image: docker:latest
+  stage: deploy
+  services:
+    - docker:dind
+  before_script:
+    - docker version
+    - echo building $IMAGE:$TAG
+    - echo LagoniP13 | docker login -u kaelan.fouwels --password-stdin $REGISTRY
+
+  script:
+    - docker build -t $REGISTRY/$IMAGE:$TAG .
+    - docker push $REGISTRY/$IMAGE:$TAG
