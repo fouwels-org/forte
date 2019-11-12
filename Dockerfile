@@ -72,7 +72,10 @@ RUN cd /root \
 && strip /exe/lib/*
 
 FROM alpine:latest
-     COPY --from=builder /exe/forte /usr/bin/forte
-     COPY --from=builder /exe/lib/* /usr/lib/
-     RUN apk add --no-cache libstdc++ libressl
-     CMD ["/usr/bin/forte"]
+COPY --from=builder /exe/forte /usr/bin/forte
+COPY --from=builder /exe/lib/* /usr/lib/
+RUN apk add --no-cache libstdc++ libressl
+
+COPY startup.sh .
+RUN chmod +x startup.sh
+CMD "./startup.sh"
