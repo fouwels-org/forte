@@ -3,22 +3,22 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: In_Bool1
+ *** Name: Out_DInt1
  *** Description: Composite Function Block Type
  *** Version: 
  ***     1.0: 2019-11-05/thomasolsen - null - 
  *************************************************************************/
 
-#ifndef _IN_BOOL1_H_
-#define _IN_BOOL1_H_
+#ifndef _OUT_DINT1_H_
+#define _OUT_DINT1_H_
 
 #include <cfb.h>
 #include <typelib.h>
-#include <forte_bool.h>
+#include <forte_dint.h>
 #include <forte_wstring.h>
 
-class FORTE_In_Bool1: public CCompositeFB{
-  DECLARE_FIRMWARE_FB(FORTE_In_Bool1)
+class FORTE_Out_DInt1: public CCompositeFB{
+  DECLARE_FIRMWARE_FB(FORTE_Out_DInt1)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -27,10 +27,8 @@ private:
     return *static_cast<CIEC_WSTRING*>(getDI(0));
   };
 
-  static const CStringDictionary::TStringId scm_anDataOutputNames[];
-  static const CStringDictionary::TStringId scm_anDataOutputTypeIds[];
-  CIEC_BOOL &IN1() {
-    return *static_cast<CIEC_BOOL*>(getDO(0));
+  CIEC_DINT &Out1() {
+    return *static_cast<CIEC_DINT*>(getDI(1));
   };
 
   static const TEventID scm_nEventINITID = 0;
@@ -41,12 +39,11 @@ private:
 
   static const TEventID scm_nEventCNFID = 0;
   static const TForteInt16 scm_anEOWithIndexes[];
-  static const TDataIOID scm_anEOWith[];
   static const CStringDictionary::TStringId scm_anEventOutputNames[];
 
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
-   FORTE_FB_DATA_ARRAY(1, 1, 1, 0);
+   FORTE_FB_DATA_ARRAY(1, 2, 0, 0);
 
   static const SCFB_FBInstanceData scm_astInternalFBs[];
 
@@ -58,10 +55,10 @@ private:
   static const SCFB_FBNData scm_stFBNData;
 
 public:
-  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_In_Bool1){
+  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_Out_DInt1){
   };
 
-  virtual ~FORTE_In_Bool1(){};
+  virtual ~FORTE_Out_DInt1(){};
 
 };
 
