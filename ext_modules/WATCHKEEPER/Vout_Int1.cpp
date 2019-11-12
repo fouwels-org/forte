@@ -1,0 +1,73 @@
+/*************************************************************************
+ *** FORTE Library Element
+ ***
+ *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
+ ***
+ *** Name: Vout_Int1
+ *** Description: Composite Function Block Type
+ *** Version: 
+ ***     1.0: 2019-11-05/thomasolsen - null - 
+ *************************************************************************/
+
+#include "Vout_Int1.h"
+#ifdef FORTE_ENABLE_GENERATED_SOURCE_CPP
+#include "Vout_Int1_gen.cpp"
+#endif
+
+DEFINE_FIRMWARE_FB(FORTE_Vout_Int1, g_nStringIdVout_Int1)
+
+const CStringDictionary::TStringId FORTE_Vout_Int1::scm_anDataInputNames[] = {g_nStringIdName1, g_nStringIdOut1};
+
+const CStringDictionary::TStringId FORTE_Vout_Int1::scm_anDataInputTypeIds[] = {g_nStringIdWSTRING, g_nStringIdINT};
+
+const TForteInt16 FORTE_Vout_Int1::scm_anEIWithIndexes[] = {0, 3};
+const TDataIOID FORTE_Vout_Int1::scm_anEIWith[] = {0, 1, 255, 0, 1, 255};
+const CStringDictionary::TStringId FORTE_Vout_Int1::scm_anEventInputNames[] = {g_nStringIdINIT, g_nStringIdREQ};
+
+const TForteInt16 FORTE_Vout_Int1::scm_anEOWithIndexes[] = {-1, -1};
+const CStringDictionary::TStringId FORTE_Vout_Int1::scm_anEventOutputNames[] = {g_nStringIdCNF};
+
+const SFBInterfaceSpec FORTE_Vout_Int1::scm_stFBInterfaceSpec = {
+  2,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
+  1,  scm_anEventOutputNames,  0, 0,  2,  scm_anDataInputNames, scm_anDataInputTypeIds,
+  0,  0, 0,
+  0, 0
+};
+
+
+const SCFB_FBInstanceData FORTE_Vout_Int1::scm_astInternalFBs[] = {
+  {g_nStringIdCLIENT_1_0, g_nStringIdCLIENT_1_0},
+  {g_nStringIdINT2INT, g_nStringIdINT2INT},
+  {g_nStringIdOutput_Path_OPC_WRITE, g_nStringIdVar_Path_OPC_WRITE},
+};
+
+const SCFB_FBParameter FORTE_Vout_Int1::scm_astParamters[] = {
+  {0, g_nStringIdQI, "TRUE"},
+  {2, g_nStringIddns, "opcserver"},
+};
+
+const SCFB_FBConnectionData FORTE_Vout_Int1::scm_astEventConnections[] = {
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdCNF), 0, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdREQ), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdREQ), 1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdCNF), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdREQ), 0},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdINIT), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdOutput_Path_OPC_WRITE, g_nStringIdREQ), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdOutput_Path_OPC_WRITE, g_nStringIdCNF), 2, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdINIT), 0},
+};
+
+const SCFB_FBConnectionData FORTE_Vout_Int1::scm_astDataConnections[] = {
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdOut1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdIN), 1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdOUT), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdSD_1), 0},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdOutput_Path_OPC_WRITE, g_nStringIdNodeId_1), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdOutput_Path_OPC_WRITE, g_nStringIdOUT), 2, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdID), 0},
+};
+
+const SCFB_FBNData FORTE_Vout_Int1::scm_stFBNData = {
+  3, scm_astInternalFBs,
+  5, scm_astEventConnections,
+  0, 0,
+  4, scm_astDataConnections,
+  0, 0,
+  2, scm_astParamters
+};
+
+
