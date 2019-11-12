@@ -75,4 +75,4 @@ FROM alpine:latest
      COPY --from=builder /exe/forte /usr/bin/forte
      COPY --from=builder /exe/lib/* /usr/lib/
      RUN apk add --no-cache libstdc++ libressl
-     CMD ["/usr/bin/forte"]
+     CMD ["/usr/bin/forte -f /backup/forte.fboot"]
