@@ -71,7 +71,7 @@ browsepath_end = ":4840#;";
 /*  dns is the FB input as a WSTRING. It is the name of the remote OPC_UA server */
 browsepath = CONCAT((browsepath_start), (dns()), (browsepath_end));
 
-id = ",1:s=";
+id = ",1:s=IO.";
 end = "]";
 
 if((!((NodeId_1() == emptyString)))){

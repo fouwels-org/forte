@@ -3,20 +3,20 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: Output_Path_OPC
+ *** Name: Output_Path_OPC_WRITE
  *** Description: Template for a Simple Function Block Type
  *** Version: 
  ***     1.0: 2019-11-08/thomasolsen - null - 
  *************************************************************************/
 
-#ifndef _OUTPUT_PATH_OPC_H_
-#define _OUTPUT_PATH_OPC_H_
+#ifndef _OUTPUT_PATH_OPC_WRITE_H_
+#define _OUTPUT_PATH_OPC_WRITE_H_
 
 #include <simplefb.h>
 #include <forte_wstring.h>
 
-class FORTE_Output_Path_OPC: public CSimpleFB{
-  DECLARE_FIRMWARE_FB(FORTE_Output_Path_OPC)
+class FORTE_Output_Path_OPC_WRITE: public CSimpleFB{
+  DECLARE_FIRMWARE_FB(FORTE_Output_Path_OPC_WRITE)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -63,12 +63,12 @@ private:
   void alg_REQ(void);
 
 public:
-  FORTE_Output_Path_OPC(CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) : 
+  FORTE_Output_Path_OPC_WRITE(CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) : 
        CSimpleFB(pa_poSrcRes, &scm_stFBInterfaceSpec, pa_nInstanceNameId,
               0, m_anFBConnData, m_anFBVarsData){
   };
 
-  virtual ~FORTE_Output_Path_OPC(){};
+  virtual ~FORTE_Output_Path_OPC_WRITE(){};
 
 };
 

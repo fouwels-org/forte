@@ -3,43 +3,43 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: Input_Path_OPC_SUB
+ *** Name: Output_Path_OPC_WRITE
  *** Description: Template for a Simple Function Block Type
  *** Version: 
  ***     1.0: 2019-11-08/thomasolsen - null - 
  *************************************************************************/
 
-#include "Input_Path_OPC_SUB.h"
+#include "Output_Path_OPC_WRITE.h"
 #ifdef FORTE_ENABLE_GENERATED_SOURCE_CPP
-#include "Input_Path_OPC_SUB_gen.cpp"
+#include "Output_Path_OPC_WRITE_gen.cpp"
 #endif
 
-DEFINE_FIRMWARE_FB(FORTE_Input_Path_OPC_SUB, g_nStringIdInput_Path_OPC_SUB)
+DEFINE_FIRMWARE_FB(FORTE_Output_Path_OPC_WRITE, g_nStringIdOutput_Path_OPC_WRITE)
 
-const CStringDictionary::TStringId FORTE_Input_Path_OPC_SUB::scm_anDataInputNames[] = {g_nStringIddns, g_nStringIdNodeId_1, g_nStringIdNodeId_2, g_nStringIdNodeId_3, g_nStringIdNodeId_4};
+const CStringDictionary::TStringId FORTE_Output_Path_OPC_WRITE::scm_anDataInputNames[] = {g_nStringIddns, g_nStringIdNodeId_1, g_nStringIdNodeId_2, g_nStringIdNodeId_3, g_nStringIdNodeId_4};
 
-const CStringDictionary::TStringId FORTE_Input_Path_OPC_SUB::scm_anDataInputTypeIds[] = {g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING};
+const CStringDictionary::TStringId FORTE_Output_Path_OPC_WRITE::scm_anDataInputTypeIds[] = {g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING};
 
-const CStringDictionary::TStringId FORTE_Input_Path_OPC_SUB::scm_anDataOutputNames[] = {g_nStringIdOUT};
+const CStringDictionary::TStringId FORTE_Output_Path_OPC_WRITE::scm_anDataOutputNames[] = {g_nStringIdOUT};
 
-const CStringDictionary::TStringId FORTE_Input_Path_OPC_SUB::scm_anDataOutputTypeIds[] = {g_nStringIdWSTRING};
+const CStringDictionary::TStringId FORTE_Output_Path_OPC_WRITE::scm_anDataOutputTypeIds[] = {g_nStringIdWSTRING};
 
-const TForteInt16 FORTE_Input_Path_OPC_SUB::scm_anEIWithIndexes[] = {0};
-const TDataIOID FORTE_Input_Path_OPC_SUB::scm_anEIWith[] = {1, 0, 4, 2, 3, 255};
-const CStringDictionary::TStringId FORTE_Input_Path_OPC_SUB::scm_anEventInputNames[] = {g_nStringIdREQ};
+const TForteInt16 FORTE_Output_Path_OPC_WRITE::scm_anEIWithIndexes[] = {0};
+const TDataIOID FORTE_Output_Path_OPC_WRITE::scm_anEIWith[] = {1, 0, 4, 2, 3, 255};
+const CStringDictionary::TStringId FORTE_Output_Path_OPC_WRITE::scm_anEventInputNames[] = {g_nStringIdREQ};
 
-const TDataIOID FORTE_Input_Path_OPC_SUB::scm_anEOWith[] = {0, 255};
-const TForteInt16 FORTE_Input_Path_OPC_SUB::scm_anEOWithIndexes[] = {0, -1};
-const CStringDictionary::TStringId FORTE_Input_Path_OPC_SUB::scm_anEventOutputNames[] = {g_nStringIdCNF};
+const TDataIOID FORTE_Output_Path_OPC_WRITE::scm_anEOWith[] = {0, 255};
+const TForteInt16 FORTE_Output_Path_OPC_WRITE::scm_anEOWithIndexes[] = {0, -1};
+const CStringDictionary::TStringId FORTE_Output_Path_OPC_WRITE::scm_anEventOutputNames[] = {g_nStringIdCNF};
 
-const SFBInterfaceSpec FORTE_Input_Path_OPC_SUB::scm_stFBInterfaceSpec = {
+const SFBInterfaceSpec FORTE_Output_Path_OPC_WRITE::scm_stFBInterfaceSpec = {
   1,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
   1,  scm_anEventOutputNames,  scm_anEOWith, scm_anEOWithIndexes,  5,  scm_anDataInputNames, scm_anDataInputTypeIds,
   1,  scm_anDataOutputNames, scm_anDataOutputTypeIds,
   0, 0
 };
 
-void FORTE_Input_Path_OPC_SUB::alg_REQ(void){
+void FORTE_Output_Path_OPC_WRITE::alg_REQ(void){
 CIEC_WSTRING action;
 CIEC_WSTRING endpoint;
 CIEC_WSTRING browsepath_start;
@@ -62,8 +62,7 @@ emptyString = "";
 delString = ";";
 
 start = "opc_ua[";
-action = "SUBSCRIBE;";
-
+action = "WRITE;";
 
 /*  browse path*/
 browsepath_start = "opc.tcp://";

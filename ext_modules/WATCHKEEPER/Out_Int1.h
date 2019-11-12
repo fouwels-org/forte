@@ -3,22 +3,22 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: Out_DInt1
+ *** Name: Out_Int1
  *** Description: Composite Function Block Type
  *** Version: 
  ***     1.0: 2019-11-05/thomasolsen - null - 
  *************************************************************************/
 
-#ifndef _OUT_DINT1_H_
-#define _OUT_DINT1_H_
+#ifndef _OUT_INT1_H_
+#define _OUT_INT1_H_
 
 #include <cfb.h>
 #include <typelib.h>
-#include <forte_dint.h>
 #include <forte_wstring.h>
+#include <forte_int.h>
 
-class FORTE_Out_DInt1: public CCompositeFB{
-  DECLARE_FIRMWARE_FB(FORTE_Out_DInt1)
+class FORTE_Out_Int1: public CCompositeFB{
+  DECLARE_FIRMWARE_FB(FORTE_Out_Int1)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -27,8 +27,8 @@ private:
     return *static_cast<CIEC_WSTRING*>(getDI(0));
   };
 
-  CIEC_DINT &Out1() {
-    return *static_cast<CIEC_DINT*>(getDI(1));
+  CIEC_INT &Out1() {
+    return *static_cast<CIEC_INT*>(getDI(1));
   };
 
   static const TEventID scm_nEventINITID = 0;
@@ -55,10 +55,10 @@ private:
   static const SCFB_FBNData scm_stFBNData;
 
 public:
-  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_Out_DInt1){
+  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_Out_Int1){
   };
 
-  virtual ~FORTE_Out_DInt1(){};
+  virtual ~FORTE_Out_Int1(){};
 
 };
 

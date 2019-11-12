@@ -2,22 +2,25 @@ forte_add_module(WATCHKEEPER "WatchKeeper Function Blocks")
 
 forte_add_sourcefile_hcpp(Input_Path_OPC_READ)
 forte_add_sourcefile_hcpp(Input_Path_OPC_SUB)
-forte_add_sourcefile_hcpp(Output_Path_OPC)
-
-
-forte_add_sourcefile_hcpp(In_Int1)
+forte_add_sourcefile_hcpp(Output_Path_OPC_WRITE)
+forte_add_sourcefile_hcpp(Var_Path_OPC_READ)
+forte_add_sourcefile_hcpp(Var_Path_OPC_WRITE)
 
 forte_add_sourcefile_hcpp(In_Bool1)
 forte_add_sourcefile_hcpp(In_Bool2)
 forte_add_sourcefile_hcpp(In_Bool3)
 forte_add_sourcefile_hcpp(In_Bool4)
 
+forte_add_sourcefile_hcpp(In_Int1)
+
 forte_add_sourcefile_hcpp(Out_Bool1)
-forte_add_sourcefile_hcpp(Out_DInt1)
+forte_add_sourcefile_hcpp(Out_Int1)
+
+forte_add_sourcefile_hcpp(Vin_Bool1)
+forte_add_sourcefile_hcpp(Vout_Bool1)
 
 forte_add_sourcefile_hcpp(F_NOT_AND)
 forte_add_sourcefile_hcpp(Tmr)
-
 
 forte_add_sourcefile_hcpp(InverseCheckLogic)
 
