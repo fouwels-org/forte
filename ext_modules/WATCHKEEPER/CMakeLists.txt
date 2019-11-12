@@ -5,6 +5,7 @@ forte_add_sourcefile_hcpp(Input_Path_OPC_SUB)
 forte_add_sourcefile_hcpp(Output_Path_OPC_WRITE)
 forte_add_sourcefile_hcpp(Var_Path_OPC_READ)
 forte_add_sourcefile_hcpp(Var_Path_OPC_WRITE)
+forte_add_sourcefile_hcpp(Var_Path_OPC_SUB)
 
 forte_add_sourcefile_hcpp(In_Bool1)
 forte_add_sourcefile_hcpp(In_Bool2)

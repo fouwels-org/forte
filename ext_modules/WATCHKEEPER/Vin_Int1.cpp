@@ -24,16 +24,16 @@ const CStringDictionary::TStringId FORTE_Vin_Int1::scm_anDataOutputNames[] = {g_
 
 const CStringDictionary::TStringId FORTE_Vin_Int1::scm_anDataOutputTypeIds[] = {g_nStringIdINT};
 
-const TForteInt16 FORTE_Vin_Int1::scm_anEIWithIndexes[] = {0, 2};
-const TDataIOID FORTE_Vin_Int1::scm_anEIWith[] = {0, 255, 0, 255};
-const CStringDictionary::TStringId FORTE_Vin_Int1::scm_anEventInputNames[] = {g_nStringIdINIT, g_nStringIdREQ};
+const TForteInt16 FORTE_Vin_Int1::scm_anEIWithIndexes[] = {0};
+const TDataIOID FORTE_Vin_Int1::scm_anEIWith[] = {0, 255};
+const CStringDictionary::TStringId FORTE_Vin_Int1::scm_anEventInputNames[] = {g_nStringIdINIT};
 
 const TDataIOID FORTE_Vin_Int1::scm_anEOWith[] = {0, 255};
-const TForteInt16 FORTE_Vin_Int1::scm_anEOWithIndexes[] = {-1, 0};
+const TForteInt16 FORTE_Vin_Int1::scm_anEOWithIndexes[] = {0, -1};
 const CStringDictionary::TStringId FORTE_Vin_Int1::scm_anEventOutputNames[] = {g_nStringIdCNF};
 
 const SFBInterfaceSpec FORTE_Vin_Int1::scm_stFBInterfaceSpec = {
-  2,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
+  1,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
   1,  scm_anEventOutputNames,  scm_anEOWith, scm_anEOWithIndexes,  1,  scm_anDataInputNames, scm_anDataInputTypeIds,
   1,  scm_anDataOutputNames, scm_anDataOutputTypeIds,
   0, 0
@@ -41,34 +41,33 @@ const SFBInterfaceSpec FORTE_Vin_Int1::scm_stFBInterfaceSpec = {
 
 
 const SCFB_FBInstanceData FORTE_Vin_Int1::scm_astInternalFBs[] = {
-  {g_nStringIdCLIENT_0_1, g_nStringIdCLIENT_0_1},
-  {g_nStringIdVar_Path_OPC_READ, g_nStringIdVar_Path_OPC_READ},
   {g_nStringIdINT2INT, g_nStringIdINT2INT},
+  {g_nStringIdSUBSCRIBE_1, g_nStringIdSUBSCRIBE_1},
+  {g_nStringIdVar_Path_OPC_SUB, g_nStringIdVar_Path_OPC_SUB},
 };
 
 const SCFB_FBParameter FORTE_Vin_Int1::scm_astParamters[] = {
-  {0, g_nStringIdQI, "TRUE"},
-  {1, g_nStringIddns, "opcserver"},
+  {1, g_nStringIdQI, "TRUE"},
+  {2, g_nStringIddns, "opcserver"},
 };
 
 const SCFB_FBConnectionData FORTE_Vin_Int1::scm_astEventConnections[] = {
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdINIT), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_READ, g_nStringIdREQ), 1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_READ, g_nStringIdCNF), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_0_1, g_nStringIdINIT), 0},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdREQ), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_0_1, g_nStringIdREQ), 0},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdCNF), 2, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_0_1, g_nStringIdCNF), 0, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdREQ), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdCNF), 0, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_1, g_nStringIdIND), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdREQ), 0},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdINIT), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_SUB, g_nStringIdREQ), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_SUB, g_nStringIdCNF), 2, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_1, g_nStringIdINIT), 1},
 };
 
 const SCFB_FBConnectionData FORTE_Vin_Int1::scm_astDataConnections[] = {
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_READ, g_nStringIdOUT), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_0_1, g_nStringIdID), 0},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_READ, g_nStringIdNodeId_1), 1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdOUT), 2, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdIn), -1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_0_1, g_nStringIdRD_1), 0, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdIN), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdOUT), 0, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdIn), -1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_1, g_nStringIdRD_1), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdINT2INT, g_nStringIdIN), 0},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_SUB, g_nStringIdNodeId_1), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_SUB, g_nStringIdOUT), 2, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_1, g_nStringIdID), 1},
 };
 
 const SCFB_FBNData FORTE_Vin_Int1::scm_stFBNData = {
   3, scm_astInternalFBs,
-  5, scm_astEventConnections,
+  4, scm_astEventConnections,
   0, 0,
   4, scm_astDataConnections,
   0, 0,

@@ -34,7 +34,6 @@ private:
   };
 
   static const TEventID scm_nEventINITID = 0;
-  static const TEventID scm_nEventREQID = 1;
   static const TForteInt16 scm_anEIWithIndexes[];
   static const TDataIOID scm_anEIWith[];
   static const CStringDictionary::TStringId scm_anEventInputNames[];

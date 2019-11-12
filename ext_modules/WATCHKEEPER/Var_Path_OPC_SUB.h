@@ -3,37 +3,51 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: Vin_Bool1
- *** Description: Composite Function Block Type
+ *** Name: Var_Path_OPC_SUB
+ *** Description: Template for a Simple Function Block Type
  *** Version: 
- ***     1.0: 2019-11-05/thomasolsen - null - 
+ ***     1.0: 2019-11-08/thomasolsen - null - 
  *************************************************************************/
 
-#ifndef _VIN_BOOL1_H_
-#define _VIN_BOOL1_H_
+#ifndef _VAR_PATH_OPC_SUB_H_
+#define _VAR_PATH_OPC_SUB_H_
 
-#include <cfb.h>
-#include <typelib.h>
-#include <forte_bool.h>
+#include <simplefb.h>
 #include <forte_wstring.h>
 
-class FORTE_Vin_Bool1: public CCompositeFB{
-  DECLARE_FIRMWARE_FB(FORTE_Vin_Bool1)
+class FORTE_Var_Path_OPC_SUB: public CSimpleFB{
+  DECLARE_FIRMWARE_FB(FORTE_Var_Path_OPC_SUB)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
   static const CStringDictionary::TStringId scm_anDataInputTypeIds[];
-  CIEC_WSTRING &Name1() {
+  CIEC_WSTRING &dns() {
     return *static_cast<CIEC_WSTRING*>(getDI(0));
+  };
+
+  CIEC_WSTRING &NodeId_1() {
+    return *static_cast<CIEC_WSTRING*>(getDI(1));
+  };
+
+  CIEC_WSTRING &NodeId_2() {
+    return *static_cast<CIEC_WSTRING*>(getDI(2));
+  };
+
+  CIEC_WSTRING &NodeId_3() {
+    return *static_cast<CIEC_WSTRING*>(getDI(3));
+  };
+
+  CIEC_WSTRING &NodeId_4() {
+    return *static_cast<CIEC_WSTRING*>(getDI(4));
   };
 
   static const CStringDictionary::TStringId scm_anDataOutputNames[];
   static const CStringDictionary::TStringId scm_anDataOutputTypeIds[];
-  CIEC_BOOL &In() {
-    return *static_cast<CIEC_BOOL*>(getDO(0));
+  CIEC_WSTRING &OUT() {
+    return *static_cast<CIEC_WSTRING*>(getDO(0));
   };
 
-  static const TEventID scm_nEventINITID = 0;
+  static const TEventID scm_nEventREQID = 0;
   static const TForteInt16 scm_anEIWithIndexes[];
   static const TDataIOID scm_anEIWith[];
   static const CStringDictionary::TStringId scm_anEventInputNames[];
@@ -45,22 +59,16 @@ private:
 
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
-   FORTE_FB_DATA_ARRAY(1, 1, 1, 0);
-
-  static const SCFB_FBInstanceData scm_astInternalFBs[];
-
-  static const SCFB_FBParameter scm_astParamters[];
-
-  static const SCFB_FBConnectionData scm_astEventConnections[];
-
-  static const SCFB_FBConnectionData scm_astDataConnections[];
-  static const SCFB_FBNData scm_stFBNData;
+   FORTE_FB_DATA_ARRAY(1, 5, 1, 0);
+  void alg_REQ(void);
 
 public:
-  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_Vin_Bool1){
+  FORTE_Var_Path_OPC_SUB(CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) : 
+       CSimpleFB(pa_poSrcRes, &scm_stFBInterfaceSpec, pa_nInstanceNameId,
+              0, m_anFBConnData, m_anFBVarsData){
   };
 
-  virtual ~FORTE_Vin_Bool1(){};
+  virtual ~FORTE_Var_Path_OPC_SUB(){};
 
 };
 
