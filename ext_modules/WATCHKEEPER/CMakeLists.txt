@@ -17,6 +17,7 @@ forte_add_sourcefile_hcpp(Out_Bool1)
 forte_add_sourcefile_hcpp(Out_Int1)
 
 forte_add_sourcefile_hcpp(Vin_Bool1)
+forte_add_sourcefile_hcpp(Vin_Int1)
 forte_add_sourcefile_hcpp(Vout_Bool1)
 forte_add_sourcefile_hcpp(Vout_Int1)
 
