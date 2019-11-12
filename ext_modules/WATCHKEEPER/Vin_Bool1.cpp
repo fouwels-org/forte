@@ -29,7 +29,7 @@ const TDataIOID FORTE_Vin_Bool1::scm_anEIWith[] = {0, 255};
 const CStringDictionary::TStringId FORTE_Vin_Bool1::scm_anEventInputNames[] = {g_nStringIdINIT};
 
 const TDataIOID FORTE_Vin_Bool1::scm_anEOWith[] = {0, 255};
-const TForteInt16 FORTE_Vin_Bool1::scm_anEOWithIndexes[] = {-1, 0};
+const TForteInt16 FORTE_Vin_Bool1::scm_anEOWithIndexes[] = {0, -1};
 const CStringDictionary::TStringId FORTE_Vin_Bool1::scm_anEventOutputNames[] = {g_nStringIdCNF};
 
 const SFBInterfaceSpec FORTE_Vin_Bool1::scm_stFBInterfaceSpec = {
