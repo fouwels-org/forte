@@ -6,7 +6,7 @@
  *** Name: Tmr
  *** Description: Template for a Simple Function Block Type
  *** Version: 
- ***     1.0: 2019-11-10/thomasolsen - null - null
+ ***     1.0: 2019-11-10/thomasolsen - null - 
  *************************************************************************/
 
 #include "Tmr.h"

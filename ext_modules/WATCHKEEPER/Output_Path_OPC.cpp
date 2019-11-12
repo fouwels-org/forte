@@ -62,7 +62,7 @@ emptyString = "";
 delString = ";";
 
 start = "opc_ua[";
-action = "WRITE,";
+action = "WRITE;";
 
 /*  browse path*/
 browsepath_start = "opc.tcp://";

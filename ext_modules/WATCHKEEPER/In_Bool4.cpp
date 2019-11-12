@@ -45,13 +45,13 @@ const SCFB_FBInstanceData FORTE_In_Bool4::scm_astInternalFBs[] = {
   {g_nStringIdBOOL2BOOL_1, g_nStringIdBOOL2BOOL},
   {g_nStringIdBOOL2BOOL_2, g_nStringIdBOOL2BOOL},
   {g_nStringIdBOOL2BOOL_3, g_nStringIdBOOL2BOOL},
-  {g_nStringIdREAD_4, g_nStringIdSUBSCRIBE_4},
-  {g_nStringIdInput_Path_OPC, g_nStringIdInput_Path_OPC},
+  {g_nStringIdInput_Path_OPC_SUB, g_nStringIdInput_Path_OPC_SUB},
+  {g_nStringIdSUBSCRIBE_4, g_nStringIdSUBSCRIBE_4},
 };
 
 const SCFB_FBParameter FORTE_In_Bool4::scm_astParamters[] = {
-  {4, g_nStringIdQI, "1"},
-  {5, g_nStringIddns, "locahost"},
+  {4, g_nStringIddns, "opcserver"},
+  {5, g_nStringIdQI, "TRUE"},
 };
 
 const SCFB_FBConnectionData FORTE_In_Bool4::scm_astEventConnections[] = {
@@ -59,15 +59,15 @@ const SCFB_FBConnectionData FORTE_In_Bool4::scm_astEventConnections[] = {
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_1, g_nStringIdCNF), 1, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_2, g_nStringIdCNF), 2, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_3, g_nStringIdCNF), 3, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdIND), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL, g_nStringIdREQ), 0},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdINIT), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdREQ), 5},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdCNF), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdINIT), 4},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdINIT), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdREQ), 4},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdCNF), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdINIT), 5},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdIND), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL, g_nStringIdREQ), 0},
 };
 
 const SCFB_FBFannedOutConnectionData FORTE_In_Bool4::scm_astFannedOutEventConnections[] = {
-  {4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_1, g_nStringIdREQ), 1},
-  {4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_2, g_nStringIdREQ), 2},
-  {4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_3, g_nStringIdREQ), 3},
+  {6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_1, g_nStringIdREQ), 1},
+  {6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_2, g_nStringIdREQ), 2},
+  {6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_3, g_nStringIdREQ), 3},
 };
 
 const SCFB_FBConnectionData FORTE_In_Bool4::scm_astDataConnections[] = {
@@ -75,15 +75,15 @@ const SCFB_FBConnectionData FORTE_In_Bool4::scm_astDataConnections[] = {
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_1, g_nStringIdOUT), 1, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdIN2), -1},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_2, g_nStringIdOUT), 2, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdIN3), -1},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_3, g_nStringIdOUT), 3, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdIN4), -1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdRD_1), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL, g_nStringIdIN), 0},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdRD_2), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_1, g_nStringIdIN), 1},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdRD_3), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_2, g_nStringIdIN), 2},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdRD_4), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_3, g_nStringIdIN), 3},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdNodeId_1), 5},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName2), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdNodeId_2), 5},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName3), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdNodeId_3), 5},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName4), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdNodeId_4), 5},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC, g_nStringIdOUT), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdREAD_4, g_nStringIdID), 4},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdNodeId_1), 4},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName2), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdNodeId_2), 4},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName3), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdNodeId_3), 4},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdName4), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdNodeId_4), 4},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdInput_Path_OPC_SUB, g_nStringIdOUT), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdID), 5},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdRD_1), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL, g_nStringIdIN), 0},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdRD_2), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_1, g_nStringIdIN), 1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdRD_3), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_2, g_nStringIdIN), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSUBSCRIBE_4, g_nStringIdRD_4), 5, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL_3, g_nStringIdIN), 3},
 };
 
 const SCFB_FBNData FORTE_In_Bool4::scm_stFBNData = {

@@ -42,7 +42,7 @@ const SCFB_FBInstanceData FORTE_Out_Bool1::scm_astInternalFBs[] = {
 };
 
 const SCFB_FBParameter FORTE_Out_Bool1::scm_astParamters[] = {
-  {0, g_nStringIddns, "192.168.0.34"},
+  {0, g_nStringIddns, "opcserver"},
   {1, g_nStringIdQI, "TRUE"},
 };
 
