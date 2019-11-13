@@ -19,9 +19,12 @@ forte_add_sourcefile_hcpp(In_Int1)
 forte_add_sourcefile_hcpp(IN_B_4R)
 forte_add_sourcefile_hcpp(IN_B_8R)
 forte_add_sourcefile_hcpp(IN_I_4R)
+forte_add_sourcefile_hcpp(IN_R_4R)
 
 forte_add_sourcefile_hcpp(OUT_B_4W)
 forte_add_sourcefile_hcpp(OUT_I_4W)
+forte_add_sourcefile_hcpp(OUT_R_4W)
+
 
 forte_add_sourcefile_hcpp(Out_Bool1)
 forte_add_sourcefile_hcpp(Out_Int1)
@@ -34,8 +37,9 @@ forte_add_sourcefile_hcpp(Vout_Int1)
 forte_add_sourcefile_hcpp(F_NOT_AND)
 forte_add_sourcefile_hcpp(Tmr)
 
-forte_add_sourcefile_hcpp(FilterCheck)
-forte_add_sourcefile_hcpp(Filter)
+forte_add_sourcefile_hcpp(FilterInt)
+forte_add_sourcefile_hcpp(FilterBool)
+forte_add_sourcefile_hcpp(FilterReal)
 
 forte_add_sourcefile_hcpp(InverseCheckLogic)
 

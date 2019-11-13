@@ -3,22 +3,23 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: OUT_B_4W
+ *** Name: OUT_R_4W
  *** Description: Composite Function Block Type
  *** Version: 
  ***     1.0: 2019-11-12/thomasolsen - null - 
  *************************************************************************/
 
-#ifndef _OUT_B_4W_H_
-#define _OUT_B_4W_H_
+#ifndef _OUT_R_4W_H_
+#define _OUT_R_4W_H_
 
 #include <cfb.h>
 #include <typelib.h>
 #include <forte_bool.h>
+#include <forte_real.h>
 #include <forte_wstring.h>
 
-class FORTE_OUT_B_4W: public CCompositeFB{
-  DECLARE_FIRMWARE_FB(FORTE_OUT_B_4W)
+class FORTE_OUT_R_4W: public CCompositeFB{
+  DECLARE_FIRMWARE_FB(FORTE_OUT_R_4W)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -31,32 +32,32 @@ private:
     return *static_cast<CIEC_WSTRING*>(getDI(1));
   };
 
-  CIEC_BOOL &O1() {
-    return *static_cast<CIEC_BOOL*>(getDI(2));
+  CIEC_REAL &O1() {
+    return *static_cast<CIEC_REAL*>(getDI(2));
   };
 
   CIEC_WSTRING &ID2() {
     return *static_cast<CIEC_WSTRING*>(getDI(3));
   };
 
-  CIEC_BOOL &O2() {
-    return *static_cast<CIEC_BOOL*>(getDI(4));
+  CIEC_REAL &O2() {
+    return *static_cast<CIEC_REAL*>(getDI(4));
   };
 
   CIEC_WSTRING &ID3() {
     return *static_cast<CIEC_WSTRING*>(getDI(5));
   };
 
-  CIEC_BOOL &O3() {
-    return *static_cast<CIEC_BOOL*>(getDI(6));
+  CIEC_REAL &O3() {
+    return *static_cast<CIEC_REAL*>(getDI(6));
   };
 
   CIEC_WSTRING &ID4() {
     return *static_cast<CIEC_WSTRING*>(getDI(7));
   };
 
-  CIEC_BOOL &O4() {
-    return *static_cast<CIEC_BOOL*>(getDI(8));
+  CIEC_REAL &O4() {
+    return *static_cast<CIEC_REAL*>(getDI(8));
   };
 
   static const CStringDictionary::TStringId scm_anDataOutputNames[];
@@ -95,10 +96,10 @@ private:
   static const SCFB_FBNData scm_stFBNData;
 
 public:
-  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_OUT_B_4W){
+  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_OUT_R_4W){
   };
 
-  virtual ~FORTE_OUT_B_4W(){};
+  virtual ~FORTE_OUT_R_4W(){};
 
 };
 

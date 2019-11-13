@@ -51,10 +51,10 @@ const SCFB_FBInstanceData FORTE_OUT_I_4W::scm_astInternalFBs[] = {
   {g_nStringIdVar_Path_OPC_W_1, g_nStringIdVar_Path_OPC_WRITE_1},
   {g_nStringIdVar_Path_OPC_W_2, g_nStringIdVar_Path_OPC_WRITE_1},
   {g_nStringIdVar_Path_OPC_W_3, g_nStringIdVar_Path_OPC_WRITE_1},
-  {g_nStringIdint1, g_nStringIdINT2INT},
-  {g_nStringIdint2, g_nStringIdINT2INT},
-  {g_nStringIdint3, g_nStringIdINT2INT},
-  {g_nStringIdint4, g_nStringIdINT2INT},
+  {g_nStringIdint4, g_nStringIdFilterInt},
+  {g_nStringIdint3, g_nStringIdFilterInt},
+  {g_nStringIdint2, g_nStringIdFilterInt},
+  {g_nStringIdint1, g_nStringIdFilterInt},
 };
 
 const SCFB_FBParameter FORTE_OUT_I_4W::scm_astParamters[] = {
@@ -77,14 +77,17 @@ const SCFB_FBConnectionData FORTE_OUT_I_4W::scm_astEventConnections[] = {
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_W_2, g_nStringIdCNF), 8, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdINIT), 4},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdINITO), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_W_3, g_nStringIdREQ), 9},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_W_3, g_nStringIdCNF), 9, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdINIT), 5},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdENABLE, g_nStringIdEO), 0, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdREQ), 10},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdCNF), 10, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdREQ), 2},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdCNF), 2, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdREQ), 11},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdCNF), 11, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1, g_nStringIdREQ), 3},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1, g_nStringIdCNF), 3, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdREQ), 12},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdCNF), 12, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdREQ), 4},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdCNF), 4, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdREQ), 13},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdCNF), 13, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdREQ), 5},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdCNF), 10, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdREQ), 5},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdCNF), 11, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdREQ), 4},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdCNF), 12, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1, g_nStringIdREQ), 3},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdCNF), 13, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdREQ), 2},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdENABLE, g_nStringIdEO), 0, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdREQ), 12},
+};
+
+const SCFB_FBFannedOutConnectionData FORTE_OUT_I_4W::scm_astFannedOutEventConnections[] = {
+  {16, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdREQ), 11},
+  {16, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdREQ), 10},
+  {16, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdREQ), 13},
 };
 
 const SCFB_FBConnectionData FORTE_OUT_I_4W::scm_astDataConnections[] = {
@@ -102,14 +105,14 @@ const SCFB_FBConnectionData FORTE_OUT_I_4W::scm_astDataConnections[] = {
   {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdID4), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_W_3, g_nStringIdNodeId_1), 9},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_W_3, g_nStringIdENABLED), 9, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdQI), 5},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdVar_Path_OPC_W_3, g_nStringIdOUT), 9, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdID), 5},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdIN), 10},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdOUT), 10, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdSD_1), 2},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO2), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdIN), 11},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdOUT), 11, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1, g_nStringIdSD_1), 3},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO3), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdIN), 12},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdOUT), 12, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdSD_1), 4},
-  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO4), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdIN), 13},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdOUT), 13, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdSD_1), 5},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO4), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdIN), 10},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint4, g_nStringIdOUT), 10, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1_1, g_nStringIdSD_1), 5},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO3), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdIN), 11},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint3, g_nStringIdOUT), 11, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1_1, g_nStringIdSD_1), 4},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO2), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdIN), 12},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint2, g_nStringIdOUT), 12, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0_1, g_nStringIdSD_1), 3},
+  {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdO1), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdIN), 13},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdint1, g_nStringIdOUT), 13, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_0, g_nStringIdSD_1), 2},
 };
 
 const SCFB_FBFannedOutConnectionData FORTE_OUT_I_4W::scm_astFannedOutDataConnections[] = {
@@ -118,8 +121,8 @@ const SCFB_FBFannedOutConnectionData FORTE_OUT_I_4W::scm_astFannedOutDataConnect
 
 const SCFB_FBNData FORTE_OUT_I_4W::scm_stFBNData = {
   14, scm_astInternalFBs,
-  20, scm_astEventConnections,
-  0, 0,
+  17, scm_astEventConnections,
+  3, scm_astFannedOutEventConnections,
   22, scm_astDataConnections,
   1, scm_astFannedOutDataConnections,
   4, scm_astParamters

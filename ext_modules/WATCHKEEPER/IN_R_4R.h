@@ -3,22 +3,23 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: OUT_B_4W
+ *** Name: IN_R_4R
  *** Description: Composite Function Block Type
  *** Version: 
  ***     1.0: 2019-11-12/thomasolsen - null - 
  *************************************************************************/
 
-#ifndef _OUT_B_4W_H_
-#define _OUT_B_4W_H_
+#ifndef _IN_R_4R_H_
+#define _IN_R_4R_H_
 
 #include <cfb.h>
 #include <typelib.h>
 #include <forte_bool.h>
+#include <forte_real.h>
 #include <forte_wstring.h>
 
-class FORTE_OUT_B_4W: public CCompositeFB{
-  DECLARE_FIRMWARE_FB(FORTE_OUT_B_4W)
+class FORTE_IN_R_4R: public CCompositeFB{
+  DECLARE_FIRMWARE_FB(FORTE_IN_R_4R)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -31,38 +32,38 @@ private:
     return *static_cast<CIEC_WSTRING*>(getDI(1));
   };
 
-  CIEC_BOOL &O1() {
-    return *static_cast<CIEC_BOOL*>(getDI(2));
-  };
-
   CIEC_WSTRING &ID2() {
-    return *static_cast<CIEC_WSTRING*>(getDI(3));
-  };
-
-  CIEC_BOOL &O2() {
-    return *static_cast<CIEC_BOOL*>(getDI(4));
+    return *static_cast<CIEC_WSTRING*>(getDI(2));
   };
 
   CIEC_WSTRING &ID3() {
-    return *static_cast<CIEC_WSTRING*>(getDI(5));
-  };
-
-  CIEC_BOOL &O3() {
-    return *static_cast<CIEC_BOOL*>(getDI(6));
+    return *static_cast<CIEC_WSTRING*>(getDI(3));
   };
 
   CIEC_WSTRING &ID4() {
-    return *static_cast<CIEC_WSTRING*>(getDI(7));
-  };
-
-  CIEC_BOOL &O4() {
-    return *static_cast<CIEC_BOOL*>(getDI(8));
+    return *static_cast<CIEC_WSTRING*>(getDI(4));
   };
 
   static const CStringDictionary::TStringId scm_anDataOutputNames[];
   static const CStringDictionary::TStringId scm_anDataOutputTypeIds[];
   CIEC_BOOL &ST() {
     return *static_cast<CIEC_BOOL*>(getDO(0));
+  };
+
+  CIEC_REAL &Q1() {
+    return *static_cast<CIEC_REAL*>(getDO(1));
+  };
+
+  CIEC_REAL &Q2() {
+    return *static_cast<CIEC_REAL*>(getDO(2));
+  };
+
+  CIEC_REAL &Q3() {
+    return *static_cast<CIEC_REAL*>(getDO(3));
+  };
+
+  CIEC_REAL &Q4() {
+    return *static_cast<CIEC_REAL*>(getDO(4));
   };
 
   static const TEventID scm_nEventINITID = 0;
@@ -79,7 +80,7 @@ private:
 
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
-   FORTE_FB_DATA_ARRAY(2, 9, 1, 0);
+   FORTE_FB_DATA_ARRAY(2, 5, 5, 0);
 
   static const SCFB_FBInstanceData scm_astInternalFBs[];
 
@@ -95,10 +96,10 @@ private:
   static const SCFB_FBNData scm_stFBNData;
 
 public:
-  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_OUT_B_4W){
+  COMPOSITE_FUNCTION_BLOCK_CTOR(FORTE_IN_R_4R){
   };
 
-  virtual ~FORTE_OUT_B_4W(){};
+  virtual ~FORTE_IN_R_4R(){};
 
 };
 
