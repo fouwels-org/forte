@@ -69,7 +69,7 @@ void FORTE_Filter::enterStateSTART(void){
 
 void FORTE_Filter::enterStateNormalOp(void){
   m_nECCState = scm_nStateNormalOp;
-  sendOutputEvent( scm_nEventCNFID);
+  alg_normalOperation();
 }
 
 void FORTE_Filter::executeEvent(int pa_nEIID){
