@@ -51,22 +51,12 @@ void FORTE_Filter::setInitialValues(){
   PREV() = false;
 }
 
-void FORTE_Filter::alg_initialize(void){
-PREV() = false;
-QO = false;
-}
-
-void FORTE_Filter::alg_deInitialize(void){
-
-QO = false;
-}
-
 void FORTE_Filter::alg_normalOperation(void){
 if((IN() == PREV())){
 	/*  OUTPUT HAS NOT CHANGED - DO NOTHING*/
 }
 else{
-	/*   only perform normal operation of QI is true*/
+	/*   only perform normal operation if there has been a change */
 	OUT() = IN();
 };
 PREV() = IN();
@@ -79,7 +69,6 @@ void FORTE_Filter::enterStateSTART(void){
 
 void FORTE_Filter::enterStateNormalOp(void){
   m_nECCState = scm_nStateNormalOp;
-  alg_normalOperation();
   sendOutputEvent( scm_nEventCNFID);
 }
 

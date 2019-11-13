@@ -55,8 +55,6 @@ private:
    FORTE_BASIC_FB_DATA_ARRAY(1, 1, 1, 1, 0);
 
 virtual void setInitialValues();
-  void alg_initialize(void);
-  void alg_deInitialize(void);
   void alg_normalOperation(void);
   static const TForteInt16 scm_nStateSTART = 0;
   static const TForteInt16 scm_nStateNormalOp = 1;
