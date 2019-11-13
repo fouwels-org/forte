@@ -28,8 +28,8 @@ const TForteInt16 FORTE_FilterCheck::scm_anEIWithIndexes[] = {0};
 const TDataIOID FORTE_FilterCheck::scm_anEIWith[] = {0, 255};
 const CStringDictionary::TStringId FORTE_FilterCheck::scm_anEventInputNames[] = {g_nStringIdREQ};
 
-const TDataIOID FORTE_FilterCheck::scm_anEOWith[] = {0, 255, 0, 255};
-const TForteInt16 FORTE_FilterCheck::scm_anEOWithIndexes[] = {0, 2, -1};
+const TDataIOID FORTE_FilterCheck::scm_anEOWith[] = {0, 255};
+const TForteInt16 FORTE_FilterCheck::scm_anEOWithIndexes[] = {0, -1, -1};
 const CStringDictionary::TStringId FORTE_FilterCheck::scm_anEventOutputNames[] = {g_nStringIdCNF, g_nStringIdCHANGE};
 
 const SFBInterfaceSpec FORTE_FilterCheck::scm_stFBInterfaceSpec = {
@@ -43,12 +43,14 @@ void FORTE_FilterCheck::alg_REQ(void){
 CIEC_BOOL PREV;
 
 
-if((IN() != PREV)){
-/*   only perform normal operation of QI is true*/
-	PREV = IN();
+if((IN() == PREV)){
+	/*  OUTPUT HAS NOT CHANGED - DO NOTHING*/
+}
+else{
+	/*   only perform normal operation of QI is true*/
 	OUT() = IN();
 };
-
+PREV = IN();
 }
 
 
