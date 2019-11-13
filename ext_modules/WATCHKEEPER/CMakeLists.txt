@@ -35,6 +35,7 @@ forte_add_sourcefile_hcpp(F_NOT_AND)
 forte_add_sourcefile_hcpp(Tmr)
 
 forte_add_sourcefile_hcpp(FilterCheck)
+forte_add_sourcefile_hcpp(Filter)
 
 forte_add_sourcefile_hcpp(InverseCheckLogic)
 
