@@ -12,7 +12,7 @@ forte_add_sourcefile_hcpp(OUT_I_4W)
 forte_add_sourcefile_hcpp(OUT_R_4W)
 
 forte_add_sourcefile_hcpp(F_NOT_AND)
-forte_add_sourcefile_hcpp(Tmr)
+forte_add_sourcefile_hcpp(TMR)
 
 forte_add_sourcefile_hcpp(FilterInt)
 forte_add_sourcefile_hcpp(FilterBool)

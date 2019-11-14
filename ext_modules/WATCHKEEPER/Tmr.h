@@ -3,7 +3,7 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x!
  ***
- *** Name: Tmr
+ *** Name: TMR
  *** Description: Template for a Simple Function Block Type
  *** Version: 
  ***     1.0: 2019-11-10/thomasolsen - null - 
@@ -14,16 +14,16 @@
 
 #include <simplefb.h>
 #include <forte_time.h>
-#include <forte_int.h>
+#include <forte_dint.h>
 
-class FORTE_Tmr: public CSimpleFB{
-  DECLARE_FIRMWARE_FB(FORTE_Tmr)
+class FORTE_TMR: public CSimpleFB{
+  DECLARE_FIRMWARE_FB(FORTE_TMR)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
   static const CStringDictionary::TStringId scm_anDataInputTypeIds[];
-  CIEC_INT &IN() {
-    return *static_cast<CIEC_INT*>(getDI(0));
+  CIEC_DINT &IN() {
+    return *static_cast<CIEC_DINT*>(getDI(0));
   };
 
   static const CStringDictionary::TStringId scm_anDataOutputNames[];
@@ -48,12 +48,12 @@ private:
   void alg_REQ(void);
 
 public:
-  FORTE_Tmr(CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) : 
+  FORTE_TMR(CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) : 
        CSimpleFB(pa_poSrcRes, &scm_stFBInterfaceSpec, pa_nInstanceNameId,
               0, m_anFBConnData, m_anFBVarsData){
   };
 
-  virtual ~FORTE_Tmr(){};
+  virtual ~FORTE_TMR(){};
 
 };
 
