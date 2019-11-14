@@ -1,38 +1,15 @@
 forte_add_module(WATCHKEEPER "WatchKeeper Function Blocks")
 
-forte_add_sourcefile_hcpp(Input_Path_OPC_READ)
-forte_add_sourcefile_hcpp(Input_Path_OPC_SUB)
-forte_add_sourcefile_hcpp(Output_Path_OPC_WRITE)
-forte_add_sourcefile_hcpp(Var_Path_OPC_READ)
 forte_add_sourcefile_hcpp(Var_Path_OPC_READ_1)
-forte_add_sourcefile_hcpp(Var_Path_OPC_WRITE)
 forte_add_sourcefile_hcpp(Var_Path_OPC_WRITE_1)
-forte_add_sourcefile_hcpp(Var_Path_OPC_SUB)
-
-forte_add_sourcefile_hcpp(In_Bool1)
-forte_add_sourcefile_hcpp(In_Bool2)
-forte_add_sourcefile_hcpp(In_Bool3)
-forte_add_sourcefile_hcpp(In_Bool4)
-
-forte_add_sourcefile_hcpp(In_Int1)
 
 forte_add_sourcefile_hcpp(IN_B_4R)
-forte_add_sourcefile_hcpp(IN_B_8R)
 forte_add_sourcefile_hcpp(IN_I_4R)
 forte_add_sourcefile_hcpp(IN_R_4R)
 
 forte_add_sourcefile_hcpp(OUT_B_4W)
 forte_add_sourcefile_hcpp(OUT_I_4W)
 forte_add_sourcefile_hcpp(OUT_R_4W)
-
-
-forte_add_sourcefile_hcpp(Out_Bool1)
-forte_add_sourcefile_hcpp(Out_Int1)
-
-forte_add_sourcefile_hcpp(Vin_Bool1)
-forte_add_sourcefile_hcpp(Vin_Int1)
-forte_add_sourcefile_hcpp(Vout_Bool1)
-forte_add_sourcefile_hcpp(Vout_Int1)
 
 forte_add_sourcefile_hcpp(F_NOT_AND)
 forte_add_sourcefile_hcpp(Tmr)

@@ -27,36 +27,40 @@ private:
     return *static_cast<CIEC_BOOL*>(getDI(0));
   };
 
-  CIEC_WSTRING &ID1() {
+  CIEC_WSTRING &PREFIX() {
     return *static_cast<CIEC_WSTRING*>(getDI(1));
   };
 
+  CIEC_WSTRING &ID1() {
+    return *static_cast<CIEC_WSTRING*>(getDI(2));
+  };
+
   CIEC_BOOL &O1() {
-    return *static_cast<CIEC_BOOL*>(getDI(2));
+    return *static_cast<CIEC_BOOL*>(getDI(3));
   };
 
   CIEC_WSTRING &ID2() {
-    return *static_cast<CIEC_WSTRING*>(getDI(3));
+    return *static_cast<CIEC_WSTRING*>(getDI(4));
   };
 
   CIEC_BOOL &O2() {
-    return *static_cast<CIEC_BOOL*>(getDI(4));
+    return *static_cast<CIEC_BOOL*>(getDI(5));
   };
 
   CIEC_WSTRING &ID3() {
-    return *static_cast<CIEC_WSTRING*>(getDI(5));
+    return *static_cast<CIEC_WSTRING*>(getDI(6));
   };
 
   CIEC_BOOL &O3() {
-    return *static_cast<CIEC_BOOL*>(getDI(6));
+    return *static_cast<CIEC_BOOL*>(getDI(7));
   };
 
   CIEC_WSTRING &ID4() {
-    return *static_cast<CIEC_WSTRING*>(getDI(7));
+    return *static_cast<CIEC_WSTRING*>(getDI(8));
   };
 
   CIEC_BOOL &O4() {
-    return *static_cast<CIEC_BOOL*>(getDI(8));
+    return *static_cast<CIEC_BOOL*>(getDI(9));
   };
 
   static const CStringDictionary::TStringId scm_anDataOutputNames[];
@@ -79,7 +83,7 @@ private:
 
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
-   FORTE_FB_DATA_ARRAY(2, 9, 1, 0);
+   FORTE_FB_DATA_ARRAY(2, 10, 1, 0);
 
   static const SCFB_FBInstanceData scm_astInternalFBs[];
 

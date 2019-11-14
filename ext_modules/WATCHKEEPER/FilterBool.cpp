@@ -6,7 +6,7 @@
  *** Name: FilterBool
  *** Description: Template for a simple Basic Function Block Type
  *** Version: 
- ***     1.0: 2019-11-13/thomasolsen - null - null
+ ***     1.0: 2019-11-13/thomasolsen - null - 
  *************************************************************************/
 
 #include "FilterBool.h"
@@ -32,9 +32,9 @@ const TDataIOID FORTE_FilterBool::scm_anEOWith[] = {0, 1, 255};
 const TForteInt16 FORTE_FilterBool::scm_anEOWithIndexes[] = {0, -1};
 const CStringDictionary::TStringId FORTE_FilterBool::scm_anEventOutputNames[] = {g_nStringIdCNF};
 
-const CStringDictionary::TStringId FORTE_FilterBool::scm_anInternalsNames[] = {g_nStringIdPREV};
+const CStringDictionary::TStringId FORTE_FilterBool::scm_anInternalsNames[] = {g_nStringIdPREV, g_nStringIdFIRST_REQ};
 
-const CStringDictionary::TStringId FORTE_FilterBool::scm_anInternalsTypeIds[] = {g_nStringIdBOOL};
+const CStringDictionary::TStringId FORTE_FilterBool::scm_anInternalsTypeIds[] = {g_nStringIdBOOL, g_nStringIdBOOL};
 
 const SFBInterfaceSpec FORTE_FilterBool::scm_stFBInterfaceSpec = {
   1,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
@@ -44,11 +44,12 @@ const SFBInterfaceSpec FORTE_FilterBool::scm_stFBInterfaceSpec = {
 };
 
 
-const SInternalVarsInformation FORTE_FilterBool::scm_stInternalVars = {1, scm_anInternalsNames, scm_anInternalsTypeIds};
+const SInternalVarsInformation FORTE_FilterBool::scm_stInternalVars = {2, scm_anInternalsNames, scm_anInternalsTypeIds};
 
 
 void FORTE_FilterBool::setInitialValues(){
   PREV() = false;
+  FIRST_REQ() = true;
 }
 
 void FORTE_FilterBool::alg_normalOperation(void){
@@ -60,6 +61,11 @@ PREV() = IN();
 void FORTE_FilterBool::alg_changed(void){
 OUT() = IN();
 
+}
+
+void FORTE_FilterBool::alg_first(void){
+OUT() = IN();
+FIRST_REQ() = false;
 }
 
 
@@ -78,6 +84,12 @@ void FORTE_FilterBool::enterStateChanged(void){
   sendOutputEvent( scm_nEventCNFID);
 }
 
+void FORTE_FilterBool::enterStateFIRST_REQ(void){
+  m_nECCState = scm_nStateFIRST_REQ;
+  alg_first();
+  sendOutputEvent( scm_nEventCNFID);
+}
+
 void FORTE_FilterBool::executeEvent(int pa_nEIID){
   bool bTransitionCleared;
   do{
@@ -90,6 +102,9 @@ void FORTE_FilterBool::executeEvent(int pa_nEIID){
           bTransitionCleared  = false; //no transition cleared
         break;
       case scm_nStateNormalOp:
+        if((FIRST_REQ() == true))
+          enterStateFIRST_REQ();
+        else
         if((IN() == OUT_1()))
           enterStateSTART();
         else
@@ -104,8 +119,14 @@ void FORTE_FilterBool::executeEvent(int pa_nEIID){
         else
           bTransitionCleared  = false; //no transition cleared
         break;
+      case scm_nStateFIRST_REQ:
+        if((1))
+          enterStateSTART();
+        else
+          bTransitionCleared  = false; //no transition cleared
+        break;
       default:
-      DEVLOG_ERROR("The state is not in the valid range! The state value is: %d. The max value can be: 2.", m_nECCState.operator TForteUInt16 ());
+      DEVLOG_ERROR("The state is not in the valid range! The state value is: %d. The max value can be: 3.", m_nECCState.operator TForteUInt16 ());
         m_nECCState = 0; //0 is always the initial state
         break;
     }

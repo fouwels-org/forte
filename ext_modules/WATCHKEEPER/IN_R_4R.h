@@ -24,8 +24,8 @@ class FORTE_IN_R_4R: public CCompositeFB{
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
   static const CStringDictionary::TStringId scm_anDataInputTypeIds[];
-  CIEC_BOOL &EN() {
-    return *static_cast<CIEC_BOOL*>(getDI(0));
+  CIEC_WSTRING &PREFIX() {
+    return *static_cast<CIEC_WSTRING*>(getDI(0));
   };
 
   CIEC_WSTRING &ID1() {

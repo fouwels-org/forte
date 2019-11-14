@@ -26,8 +26,12 @@ private:
     return *static_cast<CIEC_WSTRING*>(getDI(0));
   };
 
-  CIEC_WSTRING &NodeId_1() {
+  CIEC_WSTRING &Prefix() {
     return *static_cast<CIEC_WSTRING*>(getDI(1));
+  };
+
+  CIEC_WSTRING &NodeId_1() {
+    return *static_cast<CIEC_WSTRING*>(getDI(2));
   };
 
   static const CStringDictionary::TStringId scm_anDataOutputNames[];
@@ -52,7 +56,7 @@ private:
 
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
-   FORTE_FB_DATA_ARRAY(1, 2, 2, 0);
+   FORTE_FB_DATA_ARRAY(1, 3, 2, 0);
   void alg_REQ(void);
 
 public:

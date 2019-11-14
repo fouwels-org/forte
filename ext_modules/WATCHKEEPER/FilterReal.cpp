@@ -32,9 +32,9 @@ const TDataIOID FORTE_FilterReal::scm_anEOWith[] = {0, 1, 255};
 const TForteInt16 FORTE_FilterReal::scm_anEOWithIndexes[] = {0, -1};
 const CStringDictionary::TStringId FORTE_FilterReal::scm_anEventOutputNames[] = {g_nStringIdCNF};
 
-const CStringDictionary::TStringId FORTE_FilterReal::scm_anInternalsNames[] = {g_nStringIdPREV, g_nStringIdEPS, g_nStringIdCHANGE, g_nStringIdRES};
+const CStringDictionary::TStringId FORTE_FilterReal::scm_anInternalsNames[] = {g_nStringIdPREV, g_nStringIdEPS, g_nStringIdCHANGE, g_nStringIdRES, g_nStringIdFIRST_REQ};
 
-const CStringDictionary::TStringId FORTE_FilterReal::scm_anInternalsTypeIds[] = {g_nStringIdREAL, g_nStringIdREAL, g_nStringIdBOOL, g_nStringIdREAL};
+const CStringDictionary::TStringId FORTE_FilterReal::scm_anInternalsTypeIds[] = {g_nStringIdREAL, g_nStringIdREAL, g_nStringIdBOOL, g_nStringIdREAL, g_nStringIdBOOL};
 
 const SFBInterfaceSpec FORTE_FilterReal::scm_stFBInterfaceSpec = {
   1,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
@@ -44,7 +44,7 @@ const SFBInterfaceSpec FORTE_FilterReal::scm_stFBInterfaceSpec = {
 };
 
 
-const SInternalVarsInformation FORTE_FilterReal::scm_stInternalVars = {4, scm_anInternalsNames, scm_anInternalsTypeIds};
+const SInternalVarsInformation FORTE_FilterReal::scm_stInternalVars = {5, scm_anInternalsNames, scm_anInternalsTypeIds};
 
 
 void FORTE_FilterReal::setInitialValues(){
@@ -52,6 +52,7 @@ void FORTE_FilterReal::setInitialValues(){
   EPS() = 0.0001;
   CHANGE() = false;
   RES() = 0;
+  FIRST_REQ() = true;
 }
 
 void FORTE_FilterReal::alg_normalOperation(void){
@@ -76,6 +77,11 @@ OUT() = IN();
 
 }
 
+void FORTE_FilterReal::alg_first(void){
+OUT() = IN();
+FIRST_REQ() = false;
+}
+
 
 void FORTE_FilterReal::enterStateSTART(void){
   m_nECCState = scm_nStateSTART;
@@ -92,6 +98,12 @@ void FORTE_FilterReal::enterStateChanged(void){
   sendOutputEvent( scm_nEventCNFID);
 }
 
+void FORTE_FilterReal::enterStatefirst(void){
+  m_nECCState = scm_nStatefirst;
+  alg_first();
+  sendOutputEvent( scm_nEventCNFID);
+}
+
 void FORTE_FilterReal::executeEvent(int pa_nEIID){
   bool bTransitionCleared;
   do{
@@ -104,6 +116,9 @@ void FORTE_FilterReal::executeEvent(int pa_nEIID){
           bTransitionCleared  = false; //no transition cleared
         break;
       case scm_nStateNormalOp:
+        if((FIRST_REQ() == true))
+          enterStatefirst();
+        else
         if((CHANGE() == true))
           enterStateSTART();
         else
@@ -118,8 +133,14 @@ void FORTE_FilterReal::executeEvent(int pa_nEIID){
         else
           bTransitionCleared  = false; //no transition cleared
         break;
+      case scm_nStatefirst:
+        if((1))
+          enterStateSTART();
+        else
+          bTransitionCleared  = false; //no transition cleared
+        break;
       default:
-      DEVLOG_ERROR("The state is not in the valid range! The state value is: %d. The max value can be: 2.", m_nECCState.operator TForteUInt16 ());
+      DEVLOG_ERROR("The state is not in the valid range! The state value is: %d. The max value can be: 3.", m_nECCState.operator TForteUInt16 ());
         m_nECCState = 0; //0 is always the initial state
         break;
     }

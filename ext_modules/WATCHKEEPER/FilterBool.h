@@ -6,7 +6,7 @@
  *** Name: FilterBool
  *** Description: Template for a simple Basic Function Block Type
  *** Version: 
- ***     1.0: 2019-11-13/thomasolsen - null - null
+ ***     1.0: 2019-11-13/thomasolsen - null - 
  *************************************************************************/
 
 #ifndef _FILTERBOOL_H_
@@ -51,23 +51,30 @@ private:
     return *static_cast<CIEC_BOOL*>(getVarInternal(0));
   };
 
+  CIEC_BOOL &FIRST_REQ() {
+    return *static_cast<CIEC_BOOL*>(getVarInternal(1));
+  };
+
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
 
   static const SInternalVarsInformation scm_stInternalVars;
 
-   FORTE_BASIC_FB_DATA_ARRAY(1, 1, 2, 1, 0);
+   FORTE_BASIC_FB_DATA_ARRAY(1, 1, 2, 2, 0);
 
 virtual void setInitialValues();
   void alg_normalOperation(void);
   void alg_changed(void);
+  void alg_first(void);
   static const TForteInt16 scm_nStateSTART = 0;
   static const TForteInt16 scm_nStateNormalOp = 1;
   static const TForteInt16 scm_nStateChanged = 2;
+  static const TForteInt16 scm_nStateFIRST_REQ = 3;
 
   void enterStateSTART(void);
   void enterStateNormalOp(void);
   void enterStateChanged(void);
+  void enterStateFIRST_REQ(void);
 
   virtual void executeEvent(int pa_nEIID);
 

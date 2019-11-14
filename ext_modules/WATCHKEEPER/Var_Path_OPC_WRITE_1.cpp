@@ -16,16 +16,16 @@
 
 DEFINE_FIRMWARE_FB(FORTE_Var_Path_OPC_WRITE_1, g_nStringIdVar_Path_OPC_WRITE_1)
 
-const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anDataInputNames[] = {g_nStringIddns, g_nStringIdNodeId_1};
+const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anDataInputNames[] = {g_nStringIddns, g_nStringIdPrefix, g_nStringIdNodeId_1};
 
-const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anDataInputTypeIds[] = {g_nStringIdWSTRING, g_nStringIdWSTRING};
+const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anDataInputTypeIds[] = {g_nStringIdWSTRING, g_nStringIdWSTRING, g_nStringIdWSTRING};
 
 const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anDataOutputNames[] = {g_nStringIdENABLED, g_nStringIdOUT};
 
 const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anDataOutputTypeIds[] = {g_nStringIdBOOL, g_nStringIdWSTRING};
 
 const TForteInt16 FORTE_Var_Path_OPC_WRITE_1::scm_anEIWithIndexes[] = {0};
-const TDataIOID FORTE_Var_Path_OPC_WRITE_1::scm_anEIWith[] = {1, 0, 255};
+const TDataIOID FORTE_Var_Path_OPC_WRITE_1::scm_anEIWith[] = {2, 0, 1, 255};
 const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anEventInputNames[] = {g_nStringIdREQ};
 
 const TDataIOID FORTE_Var_Path_OPC_WRITE_1::scm_anEOWith[] = {1, 0, 255};
@@ -34,7 +34,7 @@ const CStringDictionary::TStringId FORTE_Var_Path_OPC_WRITE_1::scm_anEventOutput
 
 const SFBInterfaceSpec FORTE_Var_Path_OPC_WRITE_1::scm_stFBInterfaceSpec = {
   1,  scm_anEventInputNames,  scm_anEIWith,  scm_anEIWithIndexes,
-  1,  scm_anEventOutputNames,  scm_anEOWith, scm_anEOWithIndexes,  2,  scm_anDataInputNames, scm_anDataInputTypeIds,
+  1,  scm_anEventOutputNames,  scm_anEOWith, scm_anEOWithIndexes,  3,  scm_anDataInputNames, scm_anDataInputTypeIds,
   2,  scm_anDataOutputNames, scm_anDataOutputTypeIds,
   0, 0
 };
@@ -55,6 +55,7 @@ CIEC_WSTRING PAIR4;
 CIEC_WSTRING RESULT;
 CIEC_WSTRING emptyString;
 CIEC_WSTRING delString;
+CIEC_WSTRING dotString;
 CIEC_INT stringLen;
 
 
@@ -62,6 +63,7 @@ ENABLED() = false;
 
 emptyString = "";
 delString = ";";
+dotString = ".";
 
 start = "opc_ua[";
 action = "WRITE;";
@@ -72,11 +74,11 @@ browsepath_end = ":4840#;";
 /*  dns is the FB input as a WSTRING. It is the name of the remote OPC_UA server */
 browsepath = CONCAT((browsepath_start), (dns()), (browsepath_end));
 
-id = ",1:s=VAR.";
+id = ",1:s=";
 end = "]";
 
 if((!((NodeId_1() == emptyString)))){
-	PAIR1 = CONCAT((id), (NodeId_1()), (delString));
+	PAIR1 = CONCAT((id), (Prefix()), (dotString), (NodeId_1()), (delString));
 	ENABLED() = true;
 };
 
