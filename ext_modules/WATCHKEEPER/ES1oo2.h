@@ -13,8 +13,8 @@
 #define _ES1OO2_H_
 
 #include <simplefb.h>
+#include <forte_bool.h>
 #include <forte_real.h>
-#include <forte_lreal.h>
 
 class FORTE_ES1oo2: public CSimpleFB{
   DECLARE_FIRMWARE_FB(FORTE_ES1oo2)
@@ -48,12 +48,12 @@ private:
     return *static_cast<CIEC_REAL*>(getDO(1));
   };
 
-  CIEC_LREAL &inst_dev() {
-    return *static_cast<CIEC_LREAL*>(getDO(2));
+  CIEC_REAL &inst_dev() {
+    return *static_cast<CIEC_REAL*>(getDO(2));
   };
 
-  CIEC_LREAL &dev_alm() {
-    return *static_cast<CIEC_LREAL*>(getDO(3));
+  CIEC_BOOL &dev_alm() {
+    return *static_cast<CIEC_BOOL*>(getDO(3));
   };
 
   static const TEventID scm_nEventREQID = 0;

@@ -22,7 +22,7 @@ const CStringDictionary::TStringId FORTE_ES1oo2::scm_anDataInputTypeIds[] = {g_n
 
 const CStringDictionary::TStringId FORTE_ES1oo2::scm_anDataOutputNames[] = {g_nStringIdtInstDev, g_nStringIdinst_ave, g_nStringIdinst_dev, g_nStringIddev_alm};
 
-const CStringDictionary::TStringId FORTE_ES1oo2::scm_anDataOutputTypeIds[] = {g_nStringIdREAL, g_nStringIdREAL, g_nStringIdLREAL, g_nStringIdLREAL};
+const CStringDictionary::TStringId FORTE_ES1oo2::scm_anDataOutputTypeIds[] = {g_nStringIdREAL, g_nStringIdREAL, g_nStringIdREAL, g_nStringIdBOOL};
 
 const TForteInt16 FORTE_ES1oo2::scm_anEIWithIndexes[] = {0};
 const TDataIOID FORTE_ES1oo2::scm_anEIWith[] = {0, 1, 2, 3, 255};
