@@ -24,7 +24,3 @@ forte_add_sourcefile_hcpp(valvePOS)
 forte_add_sourcefile_hcpp(ES1oo2)
 forte_add_sourcefile_hcpp(ES2s4sdc)
 forte_add_sourcefile_hcpp(Esalmcnt)
-
-
-forte_add_sourcefile_hcpp(OPCUA_READ)
-forte_add_sourcefile_hcpp(OPCUA_TAG_READ)
