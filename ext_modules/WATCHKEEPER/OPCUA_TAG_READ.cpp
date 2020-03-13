@@ -68,7 +68,7 @@ if((!((Tag_4() == "")))){
 switch(Cur_Tag_Read() ){
 case 0:
 	ENABLED() = false;
-	Cur_Tag_Read() = 1
+	Cur_Tag_Read() = 1;
 break;
 
 case 1:
@@ -101,7 +101,7 @@ case 3:
  break;
 default: 
 		ENABLED() = false;
-		Cur_Tag_Read() = 0
+		Cur_Tag_Read() = 0;
  };
 
 STATUS() = Client_Status();
