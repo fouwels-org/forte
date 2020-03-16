@@ -55,13 +55,13 @@ void FORTE_InverseCheckLogic::alg_REQ(void){
 
 OUT() = 0;
 
-//  VALVE CHECK ( IN1 = V01_1 , IN2 = V01_2 )
+//  VALVE CHECK ( IN1 = V01_2 , IN2 = V01_1 )
 if((IN1()) && (!IN2())){
-	OUT() = 2;
+	OUT() = 1;
 };
 	
 if((!IN1()) && (IN2())){
-	OUT() = 1;
+	OUT() = 2;
 };
 
 if((IN1()) && (IN2())){
