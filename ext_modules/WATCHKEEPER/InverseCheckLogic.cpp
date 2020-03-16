@@ -40,14 +40,28 @@ const SFBInterfaceSpec FORTE_InverseCheckLogic::scm_stFBInterfaceSpec = {
 };
 
 void FORTE_InverseCheckLogic::alg_REQ(void){
+//  V01 States according to TS/P/INE/8
+
+//  0 - ERROR
+
+//  1 - SHUT
+
+//  2 - OPEN
+
+//  3 - TRANSIT
+
+
+//  Initialise rov_pos (OUT)
+
 OUT() = 0;
-//  VALVE CHECK
+
+//  VALVE CHECK ( IN1 = V01_1 , IN2 = V01_2 )
 if((IN1()) && (!IN2())){
-	OUT() = 1;
+	OUT() = 2;
 };
 	
 if((!IN1()) && (IN2())){
-	OUT() = 2;
+	OUT() = 1;
 };
 
 if((IN1()) && (IN2())){
