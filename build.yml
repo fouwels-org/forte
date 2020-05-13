@@ -1,7 +1,7 @@
 version: "2"
 services:
   ignition-config:
-    image: registry2.lagoni.co.uk/lagoni-watchkeeper/forte:dev
+    image: registry2.lagoni.co.uk/lagoni-engineering/forte:dev
     build:
       dockerfile: Dockerfile
       context: "./"
