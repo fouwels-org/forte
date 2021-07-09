@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM alpine:3.8.5 AS builder
+FROM alpine:3.10.9 AS builder
 WORKDIR /root
 RUN apk --no-cache add cmake g++ gcc make openssl-dev git bash automake autoconf linux-headers libtool build-base musl-dev python3 py3-pip py3-six
 RUN pip3 install --upgrade pip
@@ -26,7 +26,6 @@ RUN wget -q -O forte.tar.gz https://git.eclipse.org/c/4diac/org.eclipse.4diac.fo
 RUN echo "90a885884faa0554e586309266ecf20530af53c328a6d1c5cb4e6a93225e5b97  forte.tar.gz" | sha256sum -c -
 RUN cd org.eclipse.4diac.forte-${VERSION_FORTE} && mkdir bin && cd bin && cmake -G "Unix Makefiles" \ 
     -DCMAKE_BUILD_TYPE=Debug \
-    -DFORTE_LOGLEVEL=LOGDEBUG \
     -DFORTE_COM_LOCAL=ON \
     -DFORTE_MODULE_CONVERT=ON \
     -DFORTE_MODULE_UTILS=ON \
