@@ -1,10 +1,11 @@
 # SPDX-FileCopyrightText: 2021 Belcan Advanced Solutions
+# SPDX-FileCopyrightText: 2022 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
 #
 # SPDX-License-Identifier: Apache-2.0
-
+---
 services:
   forte:
-    image: registry2.lagoni.co.uk/lagoni-engineering/forte:dev
+    image: ghcr.io/fouwels/forte:dev
     build:
       dockerfile: Dockerfile
       context: "./"

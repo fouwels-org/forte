@@ -10,14 +10,14 @@ RUN pip3 install six
 
 WORKDIR /root
 
-ENV VERSION_OPEN6=1.0.6
+ENV VERSION_OPEN62541=1.0.6
 ENV VERSION_FORTE=1.14.0
 
 # Build OPC-UA
-RUN wget -q -O open62541.tar.gz https://github.com/open62541/open62541/archive/refs/tags/v${VERSION_OPEN6}.tar.gz && tar -xf open62541.tar.gz
+RUN wget -q -O open62541.tar.gz https://github.com/open62541/open62541/archive/refs/tags/v${VERSION_OPEN62541}.tar.gz && tar -xf open62541.tar.gz
 RUN echo "299940025c14929533064abe0044d5805ea50d52b32d05ad9bc0e6996569c2a6  open62541.tar.gz" | sha256sum -c -
-RUN cd open62541-${VERSION_OPEN6} && mkdir -p build && cd build && cmake -DUA_ENABLE_AMALGAMATION=ON ..
-RUN cd open62541-${VERSION_OPEN6}/build && make -j && make install
+RUN cd open62541-${VERSION_OPEN62541} && mkdir -p build && cd build && cmake -DUA_ENABLE_AMALGAMATION=ON ..
+RUN cd open62541-${VERSION_OPEN62541}/build && make -j && make install
 
 # FORTE BUILD
 COPY ext_modules forte_ext/
