@@ -1,10 +1,9 @@
-# SPDX-FileCopyrightText: 2021 Belcan Advanced Solutions
+# SPDX-FileCopyrightText: 2020 Belcan Advanced Solutions
 # SPDX-FileCopyrightText: 2021 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM alpine:3.10.9 AS builder
-WORKDIR /root
+FROM alpine:3.15.0 AS builder
 RUN apk --no-cache add cmake g++ gcc make openssl-dev git bash automake autoconf linux-headers libtool build-base musl-dev python3 py3-pip py3-six
 RUN pip3 install --upgrade pip
 RUN pip3 install six 
@@ -37,22 +36,21 @@ RUN cd org.eclipse.4diac.forte-${VERSION_FORTE} && mkdir bin && cd bin && cmake 
     -DFORTE_COM_HTTP=ON \
     -DFORTE_COM_OPC_UA=ON \
     -DFORTE_COM_OPC_UA_INCLUDE_DIR=/usr/local/include \
-    -DFORTE_COM_OPC_UA_LIB_DIR=/usr/local/lib64 \
+    -DFORTE_COM_OPC_UA_LIB_DIR=/usr/local/lib \
     ..
 RUN cd org.eclipse.4diac.forte-${VERSION_FORTE}/bin && make -j && make install 
 
-# Copy Binary ready for deployment into a small container
-RUN cd org.eclipse.4diac.forte-${VERSION_FORTE}/bin && mkdir /exe \
-    && mkdir /exe/lib \
-    && cp -a /usr/local/bin/forte /exe/forte \
-    && cp -a /usr/local/lib64/lib* /exe/lib \
-    && strip /exe/forte \
-    && strip /exe/lib/*
+RUN strip /usr/local/bin/forte
 
-FROM alpine:3.14.0
-COPY --from=builder /exe/forte /usr/bin/forte
-COPY --from=builder /exe/lib/* /usr/lib/
+FROM alpine:3.15.0
+
 RUN apk add --no-cache openssl-dev libgcc libstdc++
-COPY startup.sh .
-RUN chmod +x startup.sh
-CMD ["./startup.sh"]
+
+COPY --from=builder /usr/local/bin/forte /usr/local/bin/forte
+COPY --from=builder /usr/local/lib/ /usr/local/lib/
+
+EXPOSE 4840
+EXPOSE 61499
+
+ENTRYPOINT [ "/usr/local/bin/forte" ]
+CMD ["-f", "/config/forte.fboot"]

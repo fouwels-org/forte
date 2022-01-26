@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 services:
-  ignition-config:
+  forte:
     image: registry2.lagoni.co.uk/lagoni-engineering/forte:dev
     build:
       dockerfile: Dockerfile
