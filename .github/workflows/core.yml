@@ -5,14 +5,12 @@
 on:
   push:
 name: Core
-env:
-  REGISTRY: registry2.lagoni.co.uk
-  REPO: ${{github.repository}}
-  GOSEC_VERSION: 2.8.1
-  STATICCHECK_VERSION: 2021.1
-  ARCH: linux_amd64
 jobs:
   build-scan-and-publish:
+    env:
+      REGISTRY: ghcr.io
+      REPO: ${{github.repository}}
+
     runs-on: ubuntu-latest
     name: Build, Scan, Publish
     steps:
@@ -33,7 +31,7 @@ jobs:
           severity-threshold: LOW
 
       - name: authenticate
-        run: echo ${{ secrets.REGISTRY_PASSWORD }} | docker login -u ${{ secrets.REGISTRY_USER }} --password-stdin $REGISTRY
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ github.actor }} --password-stdin $REGISTRY
 
       - name: publish
         run: docker push ${{env.REGISTRY}}/${{env.REPO}}:${{steps.vars.outputs.TAG}}
